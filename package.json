@@ -8,15 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dokdo2005/todoCalendar-server.git"
+    "url": "git+https://github.com/codestates/todoCalendar-server.git"
   },
-  "author": "",
+  "author": "4season",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dokdo2005/todoCalendar-server/issues"
+    "url": "https://github.com/codestates/todoCalendar-server/issues"
   },
-  "homepage": "https://github.com/dokdo2005/todoCalendar-server#readme",
+  "homepage": "https://github.com/codestates/todoCalendar-server#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "mysql2": "^2.1.0",
     "sequelize": "^6.3.4"
   },
