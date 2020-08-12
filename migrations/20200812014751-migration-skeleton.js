@@ -8,7 +8,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.addConstraint('todoLists', {
+    await queryInterface.addConstraint('todos', {
       fields: ['userId'],
       type: 'foreign key',
       name: 'userid_foreign_key',
@@ -26,6 +26,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.removeConstraint('todoLists', 'userid_foreign_key');
+    await queryInterface.removeConstraint('todos', 'userid_foreign_key');
   }
 };
