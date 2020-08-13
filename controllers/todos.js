@@ -5,7 +5,7 @@ const Todos = models.todo;
 module.exports = {
     get: (req, res) => {
         if (req.params.yearMonth) {
-            Todos.findAll({ where: { userId: req.body.userId, startDate: { [Op.startsWith]: req.params.yearMonth }, endDate: { [Op.startsWith]: req.params.yearMonth } } })
+            Todos.findAll({ where: { userId: req.body.userId, startDate: { [Op.startsWith]: req.params.yearMonth } } })
                 .then((data) => res.status(200).send(data))
                 .catch(() => res.status(404).send({ "error": "404 Not Found" }));
         } else {
