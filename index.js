@@ -20,6 +20,8 @@ app.use("/", (req, res) => {
 
 app.post("/login", auth.login);
 app.post("/logout", auth.logout);
+app.post("/signup", auth.signup);
+
 app.get("/calendar", todos.get);
 app.get("/calendar/:yearMonth", todos.get);
 app.post("/calendar", todos.post);
