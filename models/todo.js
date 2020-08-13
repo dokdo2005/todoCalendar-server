@@ -14,11 +14,23 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   todo.init({
-    userId: DataTypes.STRING,
-    title: DataTypes.STRING,
+    userId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+    },
+    title: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
     body: DataTypes.STRING,
-    startDate: DataTypes.DATE,
-    endDate: DataTypes.DATE,
+    startDate: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    endDate: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
     isDone: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
