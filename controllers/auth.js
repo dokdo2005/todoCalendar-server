@@ -30,7 +30,7 @@ module.exports = {
                 if (user) {
                     res.status(409).send({ "error": "409 Conflict" });
                 } else {
-                    Users.create({ userName: req.body.userName, email: req.body.email, password: req.body.password })
+                    Users.create({ userName: req.body.username, email: req.body.email, password: req.body.password })
                         .then((data) => {
                             res.status(200).send({
                                 "id": data.id,
