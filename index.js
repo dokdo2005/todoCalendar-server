@@ -14,7 +14,7 @@ app.use(session({
 const auth = require("./controllers/auth");
 const todos = require("./controllers/todos");
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
     res.send("toDoList server connected");
 });
 
