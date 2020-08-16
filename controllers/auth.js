@@ -6,7 +6,7 @@ module.exports = {
         Users.findOne({ where: { email: req.body.email, password: req.body.password } })
             .then((user) => {
                 if (user) {
-                    req.session.id = user.id;
+                    req.session.userId = user.id;
                     res.status(200).send({
                         "id": user.id,
                         "email": user.email,
