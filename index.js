@@ -1,15 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 app.use(session({
     secret: '4season',
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
+    saveUninitialized: true
 }));
 
 const auth = require("./controllers/auth");
