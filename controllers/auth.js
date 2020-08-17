@@ -19,10 +19,17 @@ module.exports = {
             .catch(() => res.status(401).send({ "error": "401 Unauthorized" }));
     },
     logout: (req, res) => {
-        req.session.destroy(() => {
-            res.status(200).send({ "result": "Success" });
-        })
-            .catch(() => res.status(400).send({ "error": "400 Bad Request" }));
+        if (req.session.userId) {
+            req.session.destroy((err) => {
+                if (err) {
+                    res.status(400).send({ "error": "400 Bad Request" });
+                } else {
+                    res.status(200).send({ "result": "Success" });
+                }
+            })
+        } else {
+            res.status(400).send({ "error": "400 Bad Request" });
+        }
     },
     signup: (req, res) => {
         Users.findOne({ where: { email: req.body.email } })
