@@ -29,6 +29,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING
     },
+    salt: {
+      type: DataTypes.STRING
+    },
   }, {
     sequelize,
     modelName: 'user',

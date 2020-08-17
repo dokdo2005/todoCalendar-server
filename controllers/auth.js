@@ -1,13 +1,17 @@
 const models = require('../models');
 const Users = models.user;
+const crypto = require('crypto');
+
 
 module.exports = {
   login: (req, res) => {
     Users.findOne({
-      where: { email: req.body.email, password: req.body.password },
+      where: { email: req.body.email },
     })
       .then((user) => {
-        if (user) {
+        let salt = user.dataValues.salt;
+        let hashPassword = crypto.createHash("sha512").update(req.body.password + salt).digest("hex");
+        if (user.dataValues.password === hashPassword) {
           req.session.userId = user.id;
           res.status(200).send({
             id: user.id,
@@ -35,6 +39,9 @@ module.exports = {
     }
   },
   signup: (req, res) => {
+    let salt = Math.round((new Date().valueOf() * Math.random())) + '';
+    let hashPassword = crypto.createHash("sha512").update(req.body.password + salt).digest("hex");
+    console.log(hashPassword);
     Users.findOne({ where: { email: req.body.email } })
       .then((user) => {
         if (user) {
@@ -43,12 +50,14 @@ module.exports = {
           Users.create({
             userName: req.body.username,
             email: req.body.email,
-            password: req.body.password,
+            password: hashPassword,
+            salt: salt
           }).then((data) => {
             res.status(200).send({
               id: data.id,
               email: data.email,
-              username: data.userName,
+              username: data.userName
+
             });
           });
         }
