@@ -35,9 +35,9 @@ module.exports = {
         endDate: req.body.endDate,
       })
         .then((data) => res.status(201).send(data))
-        .catch(() => res.status(400).send({ error: '여기400 Bad Request' }));
+        .catch(() => res.status(400).send({ error: '400 Bad Request' }));
     } else {
-      res.status(400).send({ error: '저기400 Bad Request' });
+      res.status(400).send({ error: '400 Bad Request' });
     }
   },
   update: async (req, res) => {
