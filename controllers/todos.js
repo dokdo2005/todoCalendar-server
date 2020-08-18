@@ -14,7 +14,7 @@ module.exports = {
             startDate: { [Op.startsWith]: req.params.yearMonth },
           },
         })
-          .then((data) => console.log(data)) //res.status(200).send(data)
+          .then((data) => res.status(200).send(data))
           .catch(() => res.status(404).send({ error: '404 Not Found' }));
       } else {
         await Todos.findAll({ where: { userId: req.session.userId } })
@@ -37,10 +37,10 @@ module.exports = {
         endDate: req.body.endDate,
       })
         .then((data) => res.status(201).send(data))
-        .catch(() => res.status(400).send({ error: '여기400 Bad Request' }));
+        .catch(() => res.status(400).send({ error: '400 Bad Request' }));
     } else {
       console.log('hi');
-      res.status(400).send({ error: '저기400 Bad Request' });
+      res.status(400).send({ error: '400 Bad Request' });
     }
   },
   update: async (req, res) => {
