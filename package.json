@@ -1,0 +1,32 @@
+{
+  "name": "todocalendar-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --inspect index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codestates/todoCalendar-server.git"
+  },
+  "author": "4season",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codestates/todoCalendar-server/issues"
+  },
+  "homepage": "https://github.com/codestates/todoCalendar-server#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.4",
+    "sequelize": "^6.3.4"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  }
+}
