@@ -25,7 +25,6 @@ module.exports = {
       .catch(() => res.status(401).send({ error: '401 Unauthorized' }));
   },
   logout: (req, res) => {
-    console.log(req.session);
     if (req.session.userId) {
       req.session.destroy((err) => {
         if (err) {
@@ -41,7 +40,7 @@ module.exports = {
   signup: (req, res) => {
     let salt = Math.round((new Date().valueOf() * Math.random())) + '';
     let hashPassword = crypto.createHash("sha512").update(req.body.password + salt).digest("hex");
-    console.log(hashPassword);
+
     Users.findOne({ where: { email: req.body.email } })
       .then((user) => {
         if (user) {

@@ -4,10 +4,10 @@ const Todos = models.todo;
 
 module.exports = {
   get: async (req, res) => {
-    console.log(req.params)
+
     if (req.session.userId) {
       if (req.params.yearMonth) {
-        console.log('hasparams');
+
         await Todos.findAll({
           where: {
             userId: req.session.userId,
@@ -26,8 +26,6 @@ module.exports = {
     }
   },
   post: async (req, res) => {
-    console.log('req.session', req.session);
-    console.log('req.body', req.body);
     if (req.session.userId) {
       await Todos.create({
         userId: req.session.userId,
@@ -39,12 +37,10 @@ module.exports = {
         .then((data) => res.status(201).send(data))
         .catch(() => res.status(400).send({ error: '400 Bad Request' }));
     } else {
-      console.log('hi');
       res.status(400).send({ error: '400 Bad Request' });
     }
   },
   update: async (req, res) => {
-    console.log(req.params);
     if (req.session.userId) {
       await Todos.update(
         {
