@@ -23,13 +23,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     body: DataTypes.STRING,
-    startDate: {
+    time: {
       allowNull: false,
-      type: DataTypes.DATE,
-    },
-    endDate: {
-      allowNull: false,
-      type: DataTypes.DATE,
+      type: DataTypes.TIME,
     },
     isDone: {
       type: DataTypes.BOOLEAN,
