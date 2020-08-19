@@ -33,10 +33,9 @@ app.post('/logout', auth.logout);
 app.post('/signup', auth.signup);
 
 app.get('/calendar', todos.get);
-app.get('/calendar/:yearMonth', todos.get);
 app.post('/calendar', todos.post);
-app.patch('/calendar/:id', todos.update);
-app.delete('/calendar/:id', todos.delete);
+app.patch('/calendar', todos.update);
+app.delete('/calendar', todos.delete);
 
 app.listen(5000, () => {
   console.log('server on port 5000');
