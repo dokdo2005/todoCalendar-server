@@ -6,8 +6,8 @@ const cookieParser = require('cookie-parser');
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
+  origin: 'http://localhost:3000',
+  credentials: true,
 }));
 app.use(cookieParser());
 app.use(
@@ -41,3 +41,5 @@ app.delete('/calendar/:id', todos.delete);
 app.listen(5000, () => {
   console.log('server on port 5000');
 });
+
+module.exports = app;

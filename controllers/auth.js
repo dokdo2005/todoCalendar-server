@@ -28,6 +28,7 @@ module.exports = {
     if (req.session.userId) {
       req.session.destroy((err) => {
         if (err) {
+          console.log('err', err);
           res.status(400).send({ error: '400 Bad Request' });
         } else {
           res.status(200).send({ result: 'Success' });
@@ -61,6 +62,9 @@ module.exports = {
           });
         }
       })
-      .catch(() => res.status(400).send({ error: '400 Bad Request' }));
+      .catch((err) => {
+        console.log(err);
+        res.status(400).send({ error: '400 Bad Request' })
+      });
   },
 };
