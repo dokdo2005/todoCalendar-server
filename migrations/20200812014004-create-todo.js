@@ -19,13 +19,9 @@ module.exports = {
       body: {
         type: Sequelize.STRING,
       },
-      startDate: {
+      time: {
         allowNull: false,
-        type: Sequelize.DATE,
-      },
-      endDate: {
-        allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.TIME,
       },
       isDone: {
         type: Sequelize.BOOLEAN,
